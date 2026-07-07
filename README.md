@@ -3,7 +3,7 @@
 A simple, responsive to-do list web app built using HTML, CSS, and JavaScript.
 
 ## 🔗 Live Demo
-[View Live Demo](https://reethikasrilatha-lab.github.io/Todo-list/)
+https://reethikasrilatha-lab.github.io/Todo-list/
 <!-- update this link once GitHub Pages is enabled -->
 
 ## 📌 Features
