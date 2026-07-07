@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    background:#fff;
+    width:400px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+    color:#333;
+    margin-bottom:20px;
+}
+
+.input-box{
+    display:flex;
+}
+
+input{
+    flex:1;
+    padding:12px;
+    border:2px solid #4facfe;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    margin-left:10px;
+    padding:12px 20px;
+    background:#4facfe;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0077ff;
+}
+
+ul{
+    margin-top:20px;
+}
+
+li{
+    list-style:none;
+    background:#f4f4f4;
+    margin-bottom:10px;
+    padding:12px;
+    border-radius:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.completed{
+    text-decoration:line-through;
+    color:gray;
+}
+
+.delete{
+    background:red;
+    color:white;
+    border:none;
+    padding:6px 10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>📝 To-Do List</h1>
+
+<div class="input-box">
+<input type="text" id="taskInput" placeholder="Enter a task">
+<button onclick="addTask()">Add</button>
+</div>
+
+<ul id="taskList"></ul>
+
+</div>
+
+<script>
+
+function addTask(){
+
+let input=document.getElementById("taskInput");
+
+let task=input.value.trim();
+
+if(task===""){
+alert("Please enter a task!");
+return;
+}
+
+let li=document.createElement("li");
+
+li.innerHTML=`
+<span onclick="toggleTask(this)">${task}</span>
+<button class="delete" onclick="deleteTask(this)">Delete</button>
+`;
+
+document.getElementById("taskList").appendChild(li);
+
+input.value="";
+}
+
+function deleteTask(button){
+button.parentElement.remove();
+}
+
+function toggleTask(task){
+task.classList.toggle("completed");
+}
+
+</script>
+
+</body>
+</html>
